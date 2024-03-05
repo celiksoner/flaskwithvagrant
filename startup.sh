@@ -1,8 +1,11 @@
 #!/bin/bash
 apt-get update
-apt-get install -y python
+apt install -y nginx gunicorn
 apt-get install -y python3-venv
 apt install -y python3-flask
 apt install -y python3-pip
-sudo chmod 700 -R /home/vagrant/.ssh
-#flask run --host=0.0.0.0 --debug
+sudo cp /vagrant/configs/flasknginx.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/flasknginx.conf /etc/nginx/sites-enabled
+sudo systemctl restart nginx
+cd /vagrant
+gunicorn --bind 0.0.0.0:8000 wsgi:app & flask run --host=0.0.0.0 --debug
