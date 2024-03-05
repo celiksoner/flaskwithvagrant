@@ -18,7 +18,9 @@ It is an application that you can run the application you developed with python 
 4- Open the browser and navigate to localhost:5000
 
 `Flask Serving -> http://localhost:5000`
+
 `Gunicorn Serving -> http://localhost:8000`
+
 `Nginx Serving -> http://localhost:8080`
 
 Your local environment ready, take it easy!
