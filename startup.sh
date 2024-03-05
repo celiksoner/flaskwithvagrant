@@ -8,4 +8,4 @@ sudo cp /vagrant/configs/flasknginx.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/flasknginx.conf /etc/nginx/sites-enabled
 sudo systemctl restart nginx
 cd /vagrant
-gunicorn --bind 0.0.0.0:8000 wsgi:app & flask run --host=0.0.0.0 --debug
+gunicorn --bind 0.0.0.0:8000 wsgi:app --reload & flask run --host=0.0.0.0 --debug
